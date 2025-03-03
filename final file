@@ -1,0 +1,11 @@
+# Joining the datasets
+combined_data <- results %>%
+  left_join(races, by = "raceId") %>%
+  left_join(circuits, by = "circuitId") %>%
+  left_join(drivers, by = "driverId") %>%
+  left_join(constructors, by = "constructorId") %>%
+  left_join(driver_standings, by = c("raceId", "driverId")) %>%
+  left_join(constructor_standings, by = c("raceId", "constructorId"))
+
+# Final view of the final data
+glimpse(combined_data)
